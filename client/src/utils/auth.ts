@@ -1,7 +1,7 @@
 import { JwtPayload, jwtDecode } from 'jwt-decode';
 
 class AuthService {
-  getProfile() {
+  getProfile(): JwtPayload | null {
     // TODO: return the decoded token
     const token = this.getToken();
     if (!token) return null;
@@ -23,9 +23,11 @@ class AuthService {
     // TODO: return a value that indicates if the token is expired
     try {
       const decoded = jwtDecode<JwtPayload>(token);
+      
       if (!decoded || !decoded.exp) return true;
       const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
       return decoded.exp < currentTime;
+
     } catch (error) {
       console.error('Error checking token expiration:', error);
       return true;
