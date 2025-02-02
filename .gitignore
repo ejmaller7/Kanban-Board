@@ -28,3 +28,4 @@ dist-ssr
 # Misc
 vite.config.ts
 eslint.config.js
+index.html
