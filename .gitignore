@@ -24,3 +24,7 @@ dist-ssr
 
 # Environmental Variables
 .env
+
+# Misc
+vite.config.ts
+eslint.config.js
